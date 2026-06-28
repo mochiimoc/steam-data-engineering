@@ -1,0 +1,47 @@
+version: 2
+
+models:
+  - name: dim_developer
+    columns:
+      - name: developer_id
+        tests:
+          - unique
+          - not_null
+      - name: developer_name
+        tests:
+          - not_null
+
+  - name: dim_game
+    columns:
+      - name: game_id
+        tests:
+          - unique
+          - not_null
+      - name: developer_id
+        tests:
+          - relationships:
+              arguments:
+                to: ref('dim_developer')
+                field: developer_id
+      - name: type
+        tests:
+          - accepted_values:
+              arguments:
+                values: ['game']
+
+  - name: dim_tag
+    columns:
+      - name: tag_id
+        tests:
+          - unique
+          - not_null
+      - name: tag_name
+        tests:
+          - not_null
+
+  - name: dim_date
+    columns:
+      - name: date_id
+        tests:
+          - unique
+          - not_null

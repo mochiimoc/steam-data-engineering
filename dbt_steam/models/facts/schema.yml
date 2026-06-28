@@ -1,0 +1,48 @@
+version: 2
+
+models:
+  - name: fact_game_snapshot
+    columns:
+      - name: game_id
+        tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_game')
+                field: game_id
+      - name: date_id
+        tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_date')
+                field: date_id
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          arguments:
+            combination_of_columns:
+              - game_id
+              - date_id
+
+  - name: bridge_game_tag
+    columns:
+      - name: game_id
+        tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_game')
+                field: game_id
+      - name: tag_id
+        tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_tag')
+                field: tag_id
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          arguments:
+            combination_of_columns:
+              - game_id
+              - tag_id

@@ -1,0 +1,30 @@
+name: 'steam'
+version: '1.0.0'
+config-version: 2
+
+profile: 'steam'
+
+model-paths: ["models"]
+test-paths: ["tests"]
+seed-paths: ["seeds"]
+macro-paths: ["macros"]
+
+target-path: "target"
+clean-targets:
+  - "target"
+  - "dbt_packages"
+
+vars:
+  silver_path: "C:/Users/selcu/Desktop/steamdataengineer/data/silver"
+
+models:
+  steam:
+    staging:
+      +materialized: view
+      +schema: staging
+    dims:
+      +materialized: table
+    facts:
+      +materialized: table
+    analytics:
+      +materialized: view

@@ -1,0 +1,20 @@
+
+
+
+
+
+
+with validation_errors as (
+
+    select
+        game_id, tag_id
+    from "steam"."main"."bridge_game_tag"
+    group by game_id, tag_id
+    having count(*) > 1
+
+)
+
+select *
+from validation_errors
+
+

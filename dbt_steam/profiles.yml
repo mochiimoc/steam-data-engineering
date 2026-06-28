@@ -1,0 +1,7 @@
+steam:
+  target: dev
+  outputs:
+    dev:
+      type: duckdb
+      path: "C:/Users/selcu/Desktop/steamdataengineer/data/gold/steam.duckdb"
+      threads: 4
