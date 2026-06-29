@@ -1,6 +1,6 @@
 # Steam Veri Platformu
 
-Steam oyun verisini çekip temizleyip warehouse'a oturtarak üç ürünü (Higher/Lower oyunu, pazar analiz paneli, ML satış tahmin arayüzü) besleyen uçtan uca batch data pipeline. İlk DE projesi — mimari ve dürüst metodolojiyi göstermek amacıyla yapıldı.
+Steam oyun verisini çekip temizleyip warehouse'a oturtarak üç ürünü (Higher/Lower oyunu, pazar analiz paneli, ML satış tahmin arayüzü) besleyen uçtan uca batch data pipeline. İlk DE projesi — mimari ve dürüst metodolojiyi göstermek amacıyla yapıldı. bu benim ilk projem ciddi bir amaçtan daha çok öğrendiklerimi pekiştirmek amacıyla yapıldı.
 
 ---
 
