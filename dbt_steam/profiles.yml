@@ -3,5 +3,5 @@ steam:
   outputs:
     dev:
       type: duckdb
-      path: "{{ env_var('DBT_PROJECT_ROOT', 'C:/Users/selcu/Desktop/steamdataengineer') }}/data/gold/steam.duckdb"
+      path: "{{ env_var('DBT_PROJECT_ROOT') }}/data/gold/steam.duckdb"
       threads: 4

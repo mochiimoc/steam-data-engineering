@@ -9,3 +9,5 @@ logs/
 postgres-data/
 dbt_steam/target/
 dbt_steam/dbt_packages/
+dbt_steam/logs/
+dbt_steam/.user.yml
