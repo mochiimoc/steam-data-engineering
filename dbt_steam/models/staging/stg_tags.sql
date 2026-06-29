@@ -1,6 +1,6 @@
 with source as (
     select * from read_parquet(
-        '{{ var("silver_path") }}/game_tags_*.parquet',
+        '{{ env_var("DBT_PROJECT_ROOT", "C:/Users/selcu/Desktop/steamdataengineer") }}/data/silver/game_tags_*.parquet',
         union_by_name=true
     )
 )

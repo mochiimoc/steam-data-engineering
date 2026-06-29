@@ -3,7 +3,7 @@
   create view "steam"."main_staging"."stg_tags__dbt_tmp" as (
     with source as (
     select * from read_parquet(
-        'C:/Users/selcu/Desktop/steamdataengineer/data/silver/game_tags_*.parquet',
+        '/opt/airflow/project/data/silver/game_tags_*.parquet',
         union_by_name=true
     )
 )

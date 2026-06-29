@@ -8,8 +8,8 @@ from ingestion.app_list import get_app_list
 
 BRONZE = Path("data/bronze")
 
-def harvest(appids, delay=1.5):
-    day = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+def harvest(appids, delay=1.5, date_str=None):
+    day = date_str or datetime.now(timezone.utc).strftime("%Y-%m-%d")
     out_dir = BRONZE / day
     out_dir.mkdir(parents=True, exist_ok=True)
 
@@ -35,7 +35,12 @@ def harvest(appids, delay=1.5):
         time.sleep(delay)
 
 if __name__ == "__main__":
-    appids = get_app_list(10000)
+    import argparse
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--limit", type=int, default=10000)
+    ap.add_argument("--date", default=None, help="YYYY-MM-DD (varsayılan: bugün UTC)")
+    args = ap.parse_args()
+    appids = get_app_list(args.limit)
     print(f"{len(appids)} appid alındı, çekiliyor...")
-    harvest(appids)
-    print("bitti.")  
+    harvest(appids, date_str=args.date)
+    print("bitti.")
